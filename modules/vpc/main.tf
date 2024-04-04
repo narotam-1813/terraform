@@ -13,7 +13,7 @@ resource "aws_subnet" "public_subnets" {
     cidr_block = var.public_subnets_cidr[count.index]
     availability_zone = data.aws_availability_zones.available_zones.names[count.index]
     tags = {
-      "Name" = "Public_subnet_${count.index}" 
+      "Name" = "Public_subnet_${count.index + 1}" 
     }
 }
 
@@ -23,7 +23,7 @@ resource "aws_subnet" "private_subnets" {
     cidr_block = var.private_subnets_cidr[count.index]
     availability_zone = data.aws_availability_zones.available_zones.names[count.index]
     tags = {
-      "Name" = "Private_subnet_${count.index}" 
+      "Name" = "Private_subnet_${count.index + 1}" 
     }
 }
 
